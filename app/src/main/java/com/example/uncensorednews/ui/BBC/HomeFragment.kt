@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.uncensorednews.R
+import com.example.uncensorednews.WebViewController
 import com.example.uncensorednews.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -27,10 +31,17 @@ private var _binding: FragmentHomeBinding? = null
     _binding = FragmentHomeBinding.inflate(inflater, container, false)
     val root: View = binding.root
 
-    val textView: TextView = binding.textHome
+      val myWebView :WebView = root.findViewById(R.id.WebView)
+      myWebView.loadUrl("https://www.bbc.com/news/world/asia/india")//This will help us to load the url and refer it to the webview
+      myWebView.webViewClient= WebViewController()//this helps us to retain the user to the app not to the web browser if he clicks on to something
+
+
+
+
+    /*val textView: TextView = binding.textHome
     homeViewModel.text.observe(viewLifecycleOwner) {
       textView.text = it
-    }
+    }*/
     return root
   }
 
