@@ -33,6 +33,7 @@ private var _binding: FragmentSlideshowBinding? = null
       val myWebView : WebView = root.findViewById(R.id.WebviewSlideshow)
       myWebView.loadUrl("https://edition.cnn.com/")//This will help us to load the url and refer it to the webview
       myWebView.webViewClient= WebViewController()//this helps us to retain the user to the app not to the web browser if he clicks on to something
+      myWebView.settings.javaScriptEnabled=true
 
     /*val textView: TextView = binding.textSlideshow
     slideshowViewModel.text.observe(viewLifecycleOwner) {
